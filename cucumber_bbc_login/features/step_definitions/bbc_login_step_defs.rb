@@ -1,13 +1,17 @@
 Given("I access the BBC login page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @bbc_site = BbcSite.new
+  @bbc_site.bbc_homepage.visit_homepage
+  @bbc_site.bbc_homepage.click_sign_in
+  sleep 5
 end
 
 Given("I input incorrect username details") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @bbc_site.bbc_sign_in.fill_in_email('apple1986@banana.com')
+  sleep 5
 end
 
 Given("I input incorrect password details") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @bbc_site.bbc_sign_in.fill_in_password('Password1')
 end
 
 When("I try to login") do
