@@ -14,7 +14,6 @@ end
 
 When("I try to login") do
   @bbc_site.bbc_sign_in.click_login_in
-  sleep 5
 end
 
 Then("I recieve an error for not finding the account") do
@@ -23,9 +22,16 @@ end
 
 Given("I input short password details") do
   @bbc_site.bbc_sign_in.fill_in_password('p3!')
-  sleep 5
 end
 
 Then("I recieve an error for my password being too short") do
   expect(@bbc_site.bbc_sign_in.find_email_error_message).to eq @bbc_site.bbc_sign_in.password_error
+end
+
+Given("I input only letters for the password details") do
+  @bbc_site.bbc_sign_in.fill_in_password('Password')
+end
+
+Then("I recieve an error for my password being only letters") do
+  expect(@bbc_site.bbc_sign_in.find_email_error_message).to eq @bbc_site.bbc_sign_in.password_letter_error
 end

@@ -5,16 +5,19 @@ class BbcSignIn
 
   attr_accessor :email_error
   attr_accessor :password_error
+  attr_accessor :password_letter_error
 
   # Page Objects
   EMAIL_FIELD = 'user-identifier-input'.freeze
   PASSWORD_FIELD = 'password-input'.freeze
   SIGN_IN_BUTTON = 'submit-button'.freeze
   EMAIL_ERROR_MESSAGE = '.form-message__text'.freeze
+  # LETTER_ERROR_MESSAGE = 'form-message__text'.freeze
 
   def initialize
     @email_error = 'Sorry, we can’t find an account with that email. You can register for a new account or get help here.'
     @password_error = 'Sorry, that password is too short. It needs to be eight characters or more.'
+    @password_letter_error = "Sorry, that password isn't valid. Please include something that isn't a letter."
   end
 
   def fill_in_email(email)
@@ -33,7 +36,7 @@ class BbcSignIn
     find(EMAIL_ERROR_MESSAGE).text
   end
 
-  def find_password_error_message
-    find(PASSWORD_TOO_SHORT_MESSAGE).text
-  end
+  # def find_password_error_message
+  #   find(LETTER_ERROR_MESSAGE).text
+  # end
 end
