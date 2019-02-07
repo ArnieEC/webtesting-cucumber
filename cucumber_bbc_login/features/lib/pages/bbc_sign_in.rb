@@ -7,6 +7,7 @@ class BbcSignIn
   attr_accessor :password_error
   attr_accessor :password_letter_error
   attr_accessor :password_number_error
+  attr_accessor :password_long_error
 
   # Page Objects
   EMAIL_FIELD = 'user-identifier-input'.freeze
@@ -19,6 +20,7 @@ class BbcSignIn
     @password_error = 'Sorry, that password is too short. It needs to be eight characters or more.'
     @password_letter_error = "Sorry, that password isn't valid. Please include something that isn't a letter."
     @password_number_error = "Sorry, that password isn't valid. Please include a letter."
+    @password_long_error = "Sorry, that password is too long. It can't be more than 50 characters."
   end
 
   def fill_in_email(email)

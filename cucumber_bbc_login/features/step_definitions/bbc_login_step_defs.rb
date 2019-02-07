@@ -43,3 +43,11 @@ end
 Then("I recieve an error for my password being only numbers") do
   expect(@bbc_site.bbc_sign_in.find_email_error_message).to eq @bbc_site.bbc_sign_in.password_number_error
 end
+
+Given("I input a password that is too long for the password details") do
+  @bbc_site.bbc_sign_in.fill_in_password('Arsdfjabsf12,adsjhfasdjfubasdfkuegrlfqiuwegfl37812633029712039')
+end
+
+Then("I recieve an error for my password being too long") do
+  expect(@bbc_site.bbc_sign_in.find_email_error_message).to eq @bbc_site.bbc_sign_in.password_long_error
+end
