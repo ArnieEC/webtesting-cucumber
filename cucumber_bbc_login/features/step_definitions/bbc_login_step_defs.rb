@@ -25,7 +25,7 @@ Given("I input short password details") do
 end
 
 Then("I recieve an error for my password being too short") do
-  expect(@bbc_site.bbc_sign_in.find_email_error_message).to eq @bbc_site.bbc_sign_in.password_error
+  expect(@bbc_site.bbc_sign_in.find_password_error_message).to eq @bbc_site.bbc_sign_in.password_error
 end
 
 Given("I input only letters for the password details") do
@@ -33,7 +33,7 @@ Given("I input only letters for the password details") do
 end
 
 Then("I recieve an error for my password being only letters") do
-  expect(@bbc_site.bbc_sign_in.find_email_error_message).to eq @bbc_site.bbc_sign_in.password_letter_error
+  expect(@bbc_site.bbc_sign_in.find_password_error_message).to eq @bbc_site.bbc_sign_in.password_letter_error
 end
 
 Given("I input only numbers for the password details") do
@@ -41,7 +41,7 @@ Given("I input only numbers for the password details") do
 end
 
 Then("I recieve an error for my password being only numbers") do
-  expect(@bbc_site.bbc_sign_in.find_email_error_message).to eq @bbc_site.bbc_sign_in.password_number_error
+  expect(@bbc_site.bbc_sign_in.find_password_error_message).to eq @bbc_site.bbc_sign_in.password_number_error
 end
 
 Given("I input a password that is too long for the password details") do
@@ -49,5 +49,21 @@ Given("I input a password that is too long for the password details") do
 end
 
 Then("I recieve an error for my password being too long") do
-  expect(@bbc_site.bbc_sign_in.find_email_error_message).to eq @bbc_site.bbc_sign_in.password_long_error
+  expect(@bbc_site.bbc_sign_in.find_password_error_message).to eq @bbc_site.bbc_sign_in.password_long_error
+end
+
+Given("I input invalid username details") do
+  @bbc_site.bbc_sign_in.fill_in_email('apple1986bananacom')
+end
+
+Given("I recieve an error for my email being invalid") do
+  expect(@bbc_site.bbc_sign_in.find_email_error_message).to eq @bbc_site.bbc_sign_in.invalid_email_error
+end
+
+Given("I input short username details") do
+  @bbc_site.bbc_sign_in.fill_in_email('t')
+end
+
+Then("I recieve an error for my email being too short") do
+  expect(@bbc_site.bbc_sign_in.find_email_error_message).to eq @bbc_site.bbc_sign_in.email_short_error
 end

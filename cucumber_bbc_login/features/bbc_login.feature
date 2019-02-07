@@ -34,3 +34,17 @@ Feature: BBC Login
     And I input a password that is too long for the password details
     When I try to login
     Then I recieve an error for my password being too long
+
+  Scenario: Inputting an invalid username and an incorrect password an error
+    Given I access the BBC login page
+    And I input invalid username details
+    And I input incorrect password details
+    When I try to login
+    Then I recieve an error for my email being invalid
+
+  Scenario: Inputting a short username and an incorrect password an error
+    Given I access the BBC login page
+    And I input short username details
+    And I input incorrect password details
+    When I try to login
+    Then I recieve an error for my email being too short
