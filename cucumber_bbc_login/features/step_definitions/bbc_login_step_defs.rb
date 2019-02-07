@@ -35,3 +35,11 @@ end
 Then("I recieve an error for my password being only letters") do
   expect(@bbc_site.bbc_sign_in.find_email_error_message).to eq @bbc_site.bbc_sign_in.password_letter_error
 end
+
+Given("I input only numbers for the password details") do
+  @bbc_site.bbc_sign_in.fill_in_password('12343252')
+end
+
+Then("I recieve an error for my password being only numbers") do
+  expect(@bbc_site.bbc_sign_in.find_email_error_message).to eq @bbc_site.bbc_sign_in.password_number_error
+end
