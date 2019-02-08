@@ -5,9 +5,7 @@ This is a Page Object Model created in order to test the user interface of the B
 
 Navigate to https://github.com/ArnieEC/webtesting-cucumber 
 
-Click 'clone or download' and download the ZIP
-
-Unzip the ZIP and open in your chosen code editor
+Click 'clone or download' and clone the repository
 
 ## How to run the tests
 
